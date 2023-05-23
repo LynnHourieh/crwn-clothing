@@ -1,15 +1,25 @@
 //convert curret function to arrow function
 import "./categories.styles.scss";
-import { Directory } from "./components/Directory/directory.component";
-
+import Home from "./route/home/home.component";
+import Navigation from "./route/navigation/navigation.component"
+import SignIn from "./components/sign-up-form/sign-up-form.component";
+import { Routes, Route } from "react-router-dom";
+const Shop = () => {
+  return <h1>Shop</h1>;
+};
 const App = () => {
-  const categories = [
-    { id: 1, title: "Hats" ,imageURL:"https://th.bing.com/th/id/OIP.grhNDUkImMmGd28tsWb30AHaE8?pid=ImgDet&rs=1" },
-    { id: 2, title: "Bags",imageURL:"https://th.bing.com/th/id/OIP.pUv9WJizhwimhTtB1cTzRwHaE8?pid=ImgDet&rs=1" },
-  ];
   return (
-<Directory categories={categories}/>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path="shop" element={<Shop />} />
+        <Route path="sign-in" element={<SignIn />} />
+      </Route>
+    </Routes>
   );
 };
 
 export default App;
+//go to parent component (Home) and insert the Outlet to see the Shop Component
+//index is used so that when we have / path we have n avigation + home
+//this is a nested route

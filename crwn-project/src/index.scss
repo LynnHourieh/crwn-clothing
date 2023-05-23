@@ -1,3 +1,15 @@
+
+body{
+  font-family: Instrument Serif;
+}
+a{
+  text-decoration: none;
+  color:black;
+}
+*{
+  box-sizing: border-box;
+  //to not let padding and borders change the width of element
+}
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

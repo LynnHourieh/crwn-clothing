@@ -1,13 +1,67 @@
 yarn add sass
 what is the differenec between sass and css?
-Sass (short for Syntactically Awesome Style Sheets) and CSS (Cascading Style Sheets) are both used for styling web pages, but there are some key differences between the two.
+Sass (short for Syntactically Awesome Style Sheets) and CSS (Cascading Style Sheets) are both used for styling web pages,
+but there are some key differences between the two.
 
-Syntax: The syntax of Sass is different from CSS. Sass uses indentation to define nested selectors, whereas CSS uses curly braces. Sass also has features such as variables, functions, and mixins, which allow for more dynamic and reusable styles.
+Syntax: The syntax of Sass is different from CSS.
+Sass uses indentation to define nested selectors,whereas CSS uses curly braces.
+Sass also has features such as variables, functions, and mixins, which allow for more dynamic and reusable styles.
 
-Compilation: Sass needs to be compiled into CSS before it can be used on a web page. This means that Sass files need to be processed by a compiler before they can be used in a web project, whereas CSS can be used directly.
+Compilation: Sass needs to be compiled into CSS before it can be used on a web page.
+This means that Sass files need to be processed by a compiler before they can be used in a web project,
+whereas CSS can be used directly.
 
-Modularity: Sass allows for more modular code through the use of partials, which are separate Sass files that can be imported into other files. This makes it easier to organize and maintain large projects.
+Modularity: Sass allows for more modular code through the use of partials,
+which are separate Sass files that can be imported into other files.
+This makes it easier to organize and maintain large projects.
 
-Reusability: Sass offers more reusability than CSS through the use of mixins and functions. Mixins allow for the reuse of styles across multiple selectors, while functions can be used to calculate values dynamically.
+Reusability: Sass offers more reusability than CSS through the use of mixins and functions.
+Mixins allow for the reuse of styles across multiple selectors,
+while functions can be used to calculate values dynamically.
 
-Overall, Sass is a more powerful and flexible styling language than CSS, but it requires more setup and knowledge to use effectively. CSS, on the other hand, is simpler and easier to use, but it can be limiting for complex projects.
+Overall, Sass is a more powerful and flexible styling language than CSS, 
+but it requires more setup and knowledge to use effectively.
+CSS, on the other hand, is simpler and easier to use, but it can be limiting for complex projects.
+
+
+import ReactComponent as CrwnLogo:
+yarn add vite-plugin-svgr + fix vite config
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import svgr from 'vite-plugin-svgr' 
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    react(), 
+    svgr({ 
+      svgrOptions: {
+        // svgr options
+      },
+    }),
+  ], 
+})
+
+http://localhost:5173/sign-in
+
+Firebase Database => Rules => 
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
+
+
+difference between const user and const {user}
+const user = 'John';
+user = 'Jane'; // This will cause an error because 'user' is a constant and cannot be reassigned.
+------------------------------------------------------------------------------
+const userObj = { user: 'John', age: 30 };
+const { user } = userObj;
+console.log(user); // Output: 'John'
+In summary, const user declares a constant variable,
+while const {user} uses object destructuring to extract the user property from an object
+and assign it to a variable named user.
