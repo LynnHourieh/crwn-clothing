@@ -58,10 +58,43 @@ service cloud.firestore {
 difference between const user and const {user}
 const user = 'John';
 user = 'Jane'; // This will cause an error because 'user' is a constant and cannot be reassigned.
-------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------
 const userObj = { user: 'John', age: 30 };
 const { user } = userObj;
 console.log(user); // Output: 'John'
 In summary, const user declares a constant variable,
 while const {user} uses object destructuring to extract the user property from an object
 and assign it to a variable named user.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+What is the error in this Code? (ChatGPT)
+
+const SignIn = () => {
+  
+  useEffect(async () => {
+    const response = await getRedirectResult(auth);
+    console.log(response);
+  }, []);}
+
+The error in the provided code is related to the usage of the async keyword with the useEffect hook.
+
+The useEffect hook expects the callback function to either be synchronous or return a cleanup function.
+It doesn't directly support an async callback function.
+Therefore, using async directly in the useEffect callback can lead to unexpected behavior or errors.
+
+To handle asynchronous operations inside the useEffect hook,
+you can define a separate async function and then call it within the effect.
+
+Solution: 
+const SignIn = () => {
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await getRedirectResult(auth);
+      console.log(response);
+    };
+
+    fetchData();
+  }, []);
+};
+-------------------------------------------------------------------------------------------------------------

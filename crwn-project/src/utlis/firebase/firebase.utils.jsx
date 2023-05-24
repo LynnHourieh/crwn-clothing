@@ -25,36 +25,35 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 
-const provider = new GoogleAuthProvider();
-provider.setCustomParameters({
+const googleprovider = new GoogleAuthProvider();
+googleprovider.setCustomParameters({
   prompt: "select_account",
 });
 
 export const auth = getAuth();
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
-
+//auth keeps tracking of the authentication state during entire application
+export const signInWithGooglePopup = () =>
+  signInWithPopup(auth, googleprovider);
+export const signInWithGoogleRedirect = () =>
+  signInWithRedirect(auth, googleprovider);
 //for Database
 
 export const db = getFirestore();
 export const createUserDocumentFromAuth = async (userAuth) => {
   const userDocRef = doc(db, "users", userAuth.uid);
   //console.log(userDocRef);
-  const userSnapshot = await getDoc(userDocRef)
-  console.log("userSnapshot",userSnapshot)
+  const userSnapshot = await getDoc(userDocRef);
+  console.log("userSnapshot", userSnapshot);
   //if it exists in database or not
-  console.log("userSnapshot",userSnapshot.exists())
-  if(!userSnapshot.exists()){
-    const{displayName , email}=userAuth;
-    const createdAt=new Date();
-    try{
-      await setDoc(userDocRef,{displayName,
-      email,
-      createdAt
-    });
-    }catch(error){
-     console.log("error creating the user",error.message) 
+  console.log("userSnapshot", userSnapshot.exists());
+  if (!userSnapshot.exists()) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+    try {
+      await setDoc(userDocRef, { displayName, email, createdAt });
+    } catch (error) {
+      console.log("error creating the user", error.message);
     }
-
   }
   return userDocRef;
 };
