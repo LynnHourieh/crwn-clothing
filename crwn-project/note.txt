@@ -98,3 +98,12 @@ const SignIn = () => {
   }, []);
 };
 -------------------------------------------------------------------------------------------------------------
+EXPLAIN THIS CODE:
+  setFormFields({ ...formFields, [name]: value });
+  
+...formFields: This syntax is the spread operator in JavaScript, which is used to create a new object or array by copying the properties or elements from an existing object or array.
+In this case, it creates a shallow copy of the formFields object.
+
+[name]: value: This is object property shorthand notation introduced in ES6.
+ It creates a new property in the object with the name specified by the name variable and assigns the value of the value variable to it.
+ The square brackets [] around name indicate that the property name is determined dynamically based on the value of the name variable.
