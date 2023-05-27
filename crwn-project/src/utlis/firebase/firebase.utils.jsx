@@ -1,10 +1,13 @@
 import { initializeApp } from "firebase/app";
 //for authentication
+//in firebase sign-in with email doesn't need a provider it has by defaut, instead inset createUserWithEmailAndPassword method
 import {
   getAuth,
   signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
 } from "firebase/auth";
 //for database
 //getDoc getting documents data
@@ -39,7 +42,10 @@ export const signInWithGoogleRedirect = () =>
 //for Database
 
 export const db = getFirestore();
-export const createUserDocumentFromAuth = async (userAuth) => {
+export const createUserDocumentFromAuth = async (
+  userAuth,
+  additionalInformation = {}
+) => {
   const userDocRef = doc(db, "users", userAuth.uid);
   //console.log(userDocRef);
   const userSnapshot = await getDoc(userDocRef);
@@ -50,10 +56,27 @@ export const createUserDocumentFromAuth = async (userAuth) => {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
     try {
-      await setDoc(userDocRef, { displayName, email, createdAt });
+      await setDoc(userDocRef, {
+        displayName,
+        email,
+        createdAt,
+        ...additionalInformation,
+      });
     } catch (error) {
       console.log("error creating the user", error.message);
     }
   }
   return userDocRef;
+};
+
+//for sign-up using email "creating"
+export const createAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+  return await createUserWithEmailAndPassword(auth, email, password);
+};
+
+//for sign-in using email 
+export const signInAuthUserWithEmmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+  return await signInWithEmailAndPassword(auth, email, password);
 };
