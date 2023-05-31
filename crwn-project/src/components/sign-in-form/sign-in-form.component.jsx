@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 import "./sign-in-form.styles.scss";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
-  signInAuthUserWithEmmailAndPassword
+  signInAuthUserWithEmailAndPassword,
 } from "../../utlis/firebase/firebase.utils";
+
 import { signInWithGooglePopup } from "../../utlis/firebase/firebase.utils";
+
+// import { UserContext } from "../../contexts/user.context";
+
 const defaultFormFields = {
   email: "",
   password: "",
@@ -17,30 +21,35 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
+  // const {setCurrentUser} = useContext(UserContext)
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
+    //const { user } = await signInWithGooglePopup();
+    // const userDocRef = await createUserDocumentFromAuth(user);
     //console.log(user);
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-   
-    try { 
-      const response= await signInAuthUserWithEmmailAndPassword(email, password)
-      console.log(response)
+
+    try {
+      const { user } = await signInAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
+// setCurrentUser(user)
+      // console.log(response);
       resetFormFields();
     } catch (error) {
-      if (error.code=="auth/wrong-password"){
-        alert("Your Password is wrong")
+      if (error.code == "auth/wrong-password") {
+        alert("Your Password is wrong");
+      } else if (error.code == "auth/user-not-found") {
+        alert("no user assosiated with email");
+      } else {
+        console.log(error);
       }
-      else if(error.code =="auth/user-not-found"){
-        alert("no user assosiated with email")
-      }
-      else{console.log(error)}
-      
     }
   };
 

@@ -107,3 +107,17 @@ In this case, it creates a shallow copy of the formFields object.
 [name]: value: This is object property shorthand notation introduced in ES6.
  It creates a new property in the object with the name specified by the name variable and assigns the value of the value variable to it.
  The square brackets [] around name indicate that the property name is determined dynamically based on the value of the name variable.
+
+
+ a Component re-render whenever its states updates or its props change
+
+ console.log("hit") in sign-up component : -we have two components sign-in and sign-up
+                                           -we use Context just in sign-in component
+                                           -what will re-render is sign-in only ; sign-up will not re-render because we didn't import useContext in it. 
+
+In Firebase, the onAuthStateChanged method is used to monitor the authentication state of a user. It is typically used in client-side JavaScript code when working with Firebase Authentication.
+
+The onAuthStateChanged method is provided by the Firebase Authentication SDK and allows you to register a callback function that will be called whenever the authentication state changes.
+The authentication state can change when a user logs in, logs out, or their authentication token expires.
+
+* In lesson 11 we uncomment setCurrentUser and currentUser from sign-in and sign-up components to unmount them when using context  and instead use onAuthStateChangedListener function to monitor user while sign-in sign-out and authenticaction of it
