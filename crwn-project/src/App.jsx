@@ -4,9 +4,7 @@ import Home from "./route/home/home.component";
 import Navigation from "./route/navigation/navigation.component"
 import Authentication from "./route/authentication/authentication.component";
 import { Routes, Route } from "react-router-dom";
-const Shop = () => {
-  return <h1>Shop</h1>;
-};
+import Shop from "./components/shop/shop.component";
 const App = () => {
   return (
     <Routes>
