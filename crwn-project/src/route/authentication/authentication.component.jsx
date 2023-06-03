@@ -13,25 +13,25 @@ import "./authentication.styles.scss"
 //On the other hand, const {user} is using destructuring assignment to extract the user property from an object and assign it to a constant variable also called user.
 //This means that user will be a constant variable that holds the value of the user property from the object.
 const Authentication = () => {
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await getRedirectResult(auth);
-      console.log(response);
-      //adding user to database
-      if (response) {
-        const userDocRef = await createUserDocumentFromAuth(response.user);
-      }
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await getRedirectResult(auth);
+  //     console.log(response);
+  //     //adding user to database
+  //     if (response) {
+  //       const userDocRef = await createUserDocumentFromAuth(response.user);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
   //getRedirectResult is async function
   //[] empty array means that run this function one time after mounting
-  //signInWithGoogleRedirect function with mount again so after mounting useEffect will run and it will console the reaponse of the Redirect result
-  const logGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
-    //console.log(user);
-  };
+  //signInWithGoogleRedirect function will mount again so after mounting useEffect will run and it will console the response of the Redirect result
+  // const logGoogleUser = async () => {
+  //   const { user } = await signInWithGooglePopup();
+  //   const userDocRef = await createUserDocumentFromAuth(user);
+  //   //console.log(user);
+  // };
   // const logGoogleRedirectUser = async () => {
   //   const {user} = await signInWithGooglePopup();
   //  //application started from beginning , it didn't show user on console after sign-in with goggle Redirect so =>(use useEffect + getRedirectResult + auth)

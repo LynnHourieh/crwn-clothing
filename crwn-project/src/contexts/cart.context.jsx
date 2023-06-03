@@ -10,6 +10,7 @@ const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id == productToAdd.id
   );
+  //console.log(existingCartItem)
   // if true, do map in order to add quantity +1 of the product
   //if not return cartItem array
   if (existingCartItem) {
@@ -32,7 +33,7 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === cartItemToRemove.id
   );
-
+//console.log(existingCartItem.quantity)
   // check if quantity is equal to 1, if it is remove that item from the cart
   if (existingCartItem.quantity === 1) {
     return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id);
@@ -48,6 +49,8 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
 
 const clearCartItem = (cartItems, cartItemToClear) =>
   cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id);
+
+
 export const CartContext = createContext({
   isCartOpen: false,
   setIsCartOpen: () => {},
@@ -78,6 +81,7 @@ export const CartProvider = ({ children }) => {
     );
     setCartItemCount(count);
   }, [cartItems]);
+  
   useEffect(() => {
     const newCartTotal = cartItems.reduce(
       (total, cartItem) => total + cartItem.quantity * cartItem.price,

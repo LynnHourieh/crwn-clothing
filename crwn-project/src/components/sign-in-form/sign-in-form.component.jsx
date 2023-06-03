@@ -39,8 +39,8 @@ const SignInForm = () => {
         email,
         password
       );
-// setCurrentUser(user)
-      // console.log(response);
+      // setCurrentUser(user)
+      // console.log(user);
       resetFormFields();
     } catch (error) {
       if (error.code == "auth/wrong-password") {
@@ -55,8 +55,9 @@ const SignInForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
+//setting an object conatins name od formInput with the value we are entering it 
     setFormFields({ ...formFields, [name]: value });
+    //console.log(formFields)
   };
 
   return (

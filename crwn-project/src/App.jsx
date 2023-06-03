@@ -4,7 +4,7 @@ import Home from "./route/home/home.component";
 import Navigation from "./route/navigation/navigation.component"
 import Authentication from "./route/authentication/authentication.component";
 import { Routes, Route } from "react-router-dom";
-import Shop from "./components/shop/shop.component";
+import Shop from "./route/shop/shop.component";
 import Checkout from "./route/checkout/checkout.component";
 const App = () => {
   return (

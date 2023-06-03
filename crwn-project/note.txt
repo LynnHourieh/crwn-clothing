@@ -121,3 +121,37 @@ The onAuthStateChanged method is provided by the Firebase Authentication SDK and
 The authentication state can change when a user logs in, logs out, or their authentication token expires.
 
 * In lesson 11 we uncomment setCurrentUser and currentUser from sign-in and sign-up components to unmount them when using context  and instead use onAuthStateChangedListener function to monitor user while sign-in sign-out and authenticaction of it
+
+What is Transactions?
+In the context of databases, a transaction is a logical unit of work that consists of one or more database operations.
+It represents a sequence of actions that need to be executed together as an atomic operation.
+A transaction ensures that either all the operations within it are completed successfully or none of them are applied, maintaining data integrity.
+
+Example of Transactions =>bank : Ali :1000
+                                 Sara:1000
+Each of Ali and Sara has 1000 in their bank account 
+if ali transer 100 to sara =>Logic : -Ali: 900 (1000-100) 
+                                     -Sara:1100 (1000+100)
+Both steps should be completed in order to say that a successfull transaction is done 
+STEPS: 1-Begin the transaction.
+       2-Read the current balance of Account A.
+       3-Read the current balance of Account B.
+       4-Subtract the transfer amount from Account A's balance.
+       5-Add the transfer amount to Account B's balance.
+       6-Write the updated balance of Account A.
+       7-Write the updated balance of Account B.
+       8-Commit the transaction.
+
+What are Queries in DBMS?
+In the context of databases, a query refers to a request or command sent to a database management system (DBMS) to retrieve or manipulate data.
+It is a specific instruction given to the DBMS to perform an action on the data stored in the database.
+
+Queries are used to extract information from a database based on specified conditions and criteria.
+They allow you to search, filter, sort, and aggregate data to retrieve the desired results.
+Queries are typically written using a structured query language (SQL) or other query languages specific to the DBMS being used.                                       
+
+what is the differene between async function and promise(try,catch,then) ?
+async functions internally use promises to handle the asynchronous operations and simplify the syntax for writing asynchronous code.
+
+In the previous lesson we learned about Objects (Hash Table data structure) being better for searching for items than Array. This is a common computing optimization when talking about data structures. If you want to learn more about why this is, this is a great resource for you to use:
+https://www.kirupa.com/html5/hashtables_vs_arrays.htm
