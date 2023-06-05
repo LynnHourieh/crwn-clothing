@@ -155,3 +155,13 @@ async functions internally use promises to handle the asynchronous operations an
 
 In the previous lesson we learned about Objects (Hash Table data structure) being better for searching for items than Array. This is a common computing optimization when talking about data structures. If you want to learn more about why this is, this is a great resource for you to use:
 https://www.kirupa.com/html5/hashtables_vs_arrays.htm
+
+
+Styled Components : 
+Styled components provide a way to create and define reusable, self-contained styled React components.
+It promotes the concept of "components as styles," where the styles are encapsulated within the component itself.
+advantage: 
+           1-Scoped styles: Styles are encapsulated within the component, reducing the chance of style clashes.
+           2-Dynamic styling: You can pass props to the styled component and conditionally apply styles based on the prop values.
+           3-Interpolation: You can use JavaScript expressions within the styled component's CSS code to create dynamic styles.
+           4-Theming: styled components can easily work with theme providers to allow for theme-based styling.
