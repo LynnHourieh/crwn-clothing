@@ -9,6 +9,7 @@ import "./category.styles.scss";
 
 const Category = () => {
   const { category } = useParams();
+  console.log("category",category)
   //jackets,mem,women....
   const { categoriesMap } = useContext(CategoriesContext);
   //Array of object that have category name ex: jacket:[{id,name,price},{id,name,price}]

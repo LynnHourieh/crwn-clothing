@@ -3,13 +3,33 @@ import { Directory } from "../../components/Directory/directory.component"
 import { Outlet } from "react-router-dom";
 const Home = () => {
   const categories = [
-    { id: 1, title: "Hats" ,imageURL:"https://th.bing.com/th/id/OIP.grhNDUkImMmGd28tsWb30AHaE8?pid=ImgDet&rs=1" },
-    { id: 2, title: "Bags",imageURL:"https://th.bing.com/th/id/OIP.pUv9WJizhwimhTtB1cTzRwHaE8?pid=ImgDet&rs=1" },
-    { id: 3, title: "Shoes",imageURL:"https://th.bing.com/th/id/OIP.pUv9WJizhwimhTtB1cTzRwHaE8?pid=ImgDet&rs=1" },
-    { id: 4, title: "Dress",imageURL:"https://th.bing.com/th/id/OIP.pUv9WJizhwimhTtB1cTzRwHaE8?pid=ImgDet&rs=1" },
-    { id: 5, title: "Accesories",imageURL:"https://th.bing.com/th/id/OIP.pUv9WJizhwimhTtB1cTzRwHaE8?pid=ImgDet&rs=1" },
-   
+    {
+      id: 1,
+      title: 'hats',
+      imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+    },
+    {
+      id: 2,
+      title: 'jackets',
+      imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+    },
+    {
+      id: 3,
+      title: 'sneakers',
+      imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+    },
+    {
+      id: 4,
+      title: 'womens',
+      imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+    },
+    {
+      id: 5,
+      title: 'mens',
+      imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+    },
   ];
+
   return (
     <>
     <Outlet/><Directory categories={categories}/></>
