@@ -8,7 +8,7 @@ import {
 import { getRedirectResult } from "firebase/auth";
 import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
 import SignInForm from "../../components/sign-in-form/sign-in-form.component";
-import "./authentication.styles.scss"
+import { AuthenticationContainer } from "./authentication.styles";
 //const user declares a constant variable called user, which cannot be reassigned a new value after it has been initialized.
 //On the other hand, const {user} is using destructuring assignment to extract the user property from an object and assign it to a constant variable also called user.
 //This means that user will be a constant variable that holds the value of the user property from the object.
@@ -40,18 +40,14 @@ const Authentication = () => {
   // <button onClick={logGoogleRedirectUser
   // }>SignIn with GoogleRedirect</button>
   return (
-    <div>
-   
-      {/* <button onClick={logGoogleUser}>SignIn with Google</button>
-      <button onClick={signInWithGoogleRedirect}>
-        SignIn with GoogleRedirect
-  </button> */}
-      <div className="authentication-container">
-        {" "}
-        <SignInForm />
-        <SignUpForm />
-      </div>
-    </div>
+    <AuthenticationContainer>
+      <SignInForm />
+      <SignUpForm />
+    </AuthenticationContainer>
   );
 };
 export default Authentication;
+//  <button onClick={logGoogleUser}>SignIn with Google</button>
+// <button onClick={signInWithGoogleRedirect}>
+// SignIn with GoogleRedirect
+// </button>

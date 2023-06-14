@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import FormInput from "../form-input/form-input.component";
 import Button,{BUTTON_TYPE_CLASSES} from "../button/button.component";
-import "./sign-in-form.styles.scss";
+import { SignInContainer, ButtonsContainer } from './sign-in-form.styles';
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -61,37 +61,70 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="sign-up-container">
-      <h2>Already have an account?</h2>
-      <span>Sign in with your email and password</span>
-      <form onSubmit={handleSubmit}>
-        <FormInput
-          label="Email"
-          type="email"
-          required
-          onChange={handleChange}
-          name="email"
-          value={email}
-        />
+    <SignInContainer>
+    <h2>Already have an account?</h2>
+    <span>Sign in with your email and password</span>
+    <form onSubmit={handleSubmit}>
+      <FormInput
+        label='Email'
+        type='email'
+        required
+        onChange={handleChange}
+        name='email'
+        value={email}
+      />
 
-        <FormInput
-          label="Password"
-          type="password"
-          required
-          onChange={handleChange}
-          name="password"
-          value={password}
-        />
+      <FormInput
+        label='Password'
+        type='password'
+        required
+        onChange={handleChange}
+        name='password'
+        value={password}
+      />
+      <ButtonsContainer>
+        <Button type='submit'>Sign In</Button>
+        <Button
+          buttonType={BUTTON_TYPE_CLASSES.google}
+          type='button'
+          onClick={signInWithGoogle}
+        >
+          Sign In With Google
+        </Button>
+      </ButtonsContainer>
+    </form>
+  </SignInContainer>
+    // <div className="sign-up-container">
+    //   <h2>Already have an account?</h2>
+    //   <span>Sign in with your email and password</span>
+    //   <form onSubmit={handleSubmit}>
+    //     <FormInput
+    //       label="Email"
+    //       type="email"
+    //       required
+    //       onChange={handleChange}
+    //       name="email"
+    //       value={email}
+    //     />
 
-        <div className="buttons-container">
-          <Button type="submit">Sign In</Button>
-          <Button type="button" buttonType={BUTTON_TYPE_CLASSES.google} onClick={signInWithGoogle}>
-            Google Sign In
-          </Button>
-          {/* type="button" because if we don't mention it's type then it will take its type as submit , which will make a conflict with sign in with email  */}
-        </div>
-      </form>
-    </div>
+    //     <FormInput
+    //       label="Password"
+    //       type="password"
+    //       required
+    //       onChange={handleChange}
+    //       name="password"
+    //       value={password}
+    //     />
+
+    //     <div className="buttons-container">
+    //       <Button type="submit">Sign In</Button>
+    //       <Button type="button" buttonType={BUTTON_TYPE_CLASSES.google} onClick={signInWithGoogle}>
+    //         Google Sign In
+    //       </Button>
+    //       {/* type="button" because if we don't mention it's type then it will take its type as submit , which will make a conflict with sign in with email  */}
+    //     </div>
+    //   </form>
+    // </div>
   );
 };
 
