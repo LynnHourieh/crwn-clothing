@@ -165,3 +165,8 @@ advantage:
            2-Dynamic styling: You can pass props to the styled component and conditionally apply styles based on the prop values.
            3-Interpolation: You can use JavaScript expressions within the styled component's CSS code to create dynamic styles.
            4-Theming: styled components can easily work with theme providers to allow for theme-based styling.
+
+
+IN deploying : build : CI = yarn build
+
+
