@@ -167,6 +167,12 @@ advantage:
            4-Theming: styled components can easily work with theme providers to allow for theme-based styling.
 
 
-IN deploying : build : CI = yarn build
+IN deploying : 
+yarn add netlify-cli -g
+yarn build
+base directory :crwn-project
+build command : npm run build
+publish directory: crwn-project/dist
 
+https://dev.to/koolkishan/host-react-app-for-free-using-netlify-within-5-minutes-3kd0
 
