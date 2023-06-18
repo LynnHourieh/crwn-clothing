@@ -176,3 +176,5 @@ publish directory: crwn-project/dist
 
 https://dev.to/koolkishan/host-react-app-for-free-using-netlify-within-5-minutes-3kd0
 
+_redirect file means whatever we want to route /* connect it to index.html and send status 200
+
