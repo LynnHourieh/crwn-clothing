@@ -8,5 +8,6 @@ this project is done using react js with firebase
 https://main--crwnproject.netlify.app/
 
 ## RUN LOCALLY:
-npm run dev
-yarn dev
+1-cd crwn-project 
+2-npm run dev
+3-yarn dev
